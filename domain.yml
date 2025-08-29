@@ -1,0 +1,493 @@
+version: '3.1'
+intents:
+- cancelar_matricula
+- chegada_tardia
+- horario_campus
+- localizacao_campus
+- out_of_scope
+- nao_ajudar
+- saudar
+- contar_piada
+- testando
+- site_campus
+- pedir_atestado_matricula
+- pedir_atestado_frequencia
+#novos fluxos
+- perguntar_cursos
+- ensino_medio
+- graduacao
+- perguntar_dias_aula
+- perguntar_docentes_ads
+- perguntar_matriz_ads
+- perguntar_docentes_moda
+- perguntar_matriz_moda
+- perguntar_coordenadora_moda
+- perguntar_matriz_processos_gerenciais
+- perguntar_docentes_processos_gerenciais
+#fluxos contatos
+- perguntar_biblioteca
+- perguntar_recepcao
+- perguntar_secretaria
+- perguntar_coord_pedagogica
+- perguntar_estagio_emprego
+- perguntar_assistencia_estudantil
+- perguntar_registro_academico
+- perguntar_assessoria_direcao
+- perguntar_relacoes_externas
+- perguntar_infraestrutura
+- perguntar_planejamento_financas
+- perguntar_tic
+- perguntar_gestao_pessoas
+- perguntar_coord_informatica
+- perguntar_coord_quimica
+- perguntar_coord_modelagem
+- perguntar_coord_administracao
+- perguntar_coord_meio_ambiente
+- perguntar_coord_ads
+- perguntar_coord_moda
+- perguntar_coord_pg
+- perguntar_coord_pos
+- perguntar_guarita_veiculos
+- perguntar_grupos_atividades
+- perguntar_neabi
+- perguntar_elas_digitais
+- perguntar_bioifsc
+- perguntar_gfig
+- perguntar_frequencia
+- perguntar_rematricula
+- perguntar_avaliacao
+- perguntar_recuperacao
+- perguntar_afastamento
+- perguntar_transferencia_interna
+- perguntar_transferencia_externa
+- perguntar_retorno_diploma
+- periodo_trancamento
+- perguntar_normas_academicas
+#restantes
+- periodo_validacao
+- cancelamento_uc
+- solicitacao_formatura
+- periodo_envio_documentacao
+- recesso_escolar
+- editais_pesquisa_extensao
+
+actions:
+- action_processar_horario_campus
+- action_consultar_dados_dinamicos
+
+responses:
+  utter_saudar:
+  - text: Olá! Sou o chatbot do IFSC Câmpus Gaspar.
+  - text: Oi! Sou o chatbot do IFSC Câmpus Gaspar.
+  - text: E aí? Eu sou o chatbot do IFSC Câmpus Gaspar.
+  utter_localizacao_campus:
+  - text: O IFSC Câmpus Gaspar fica na Rua Adriano Kormann, 510, no bairro Bela Vista, em Gaspar, Santa Catarina. O telefone para contato é (47) 3318-3700.
+  utter_site_campus:
+  - text: O site do IFSC Câmpus Gaspar é https://www.ifsc.edu.br/web/campus-gaspar. Caso você queira saber mais sobre o IFSC, acesse https://www.ifsc.edu.br/.
+  utter_testando:
+  - text: Testando, 123... tem alguém aí?
+  utter_como_ajudar:
+  - text: Como posso te ajudar?
+  - text: Em que posso ajudar?
+  - text: O que posso fazer por você?
+  utter_como_ajudar_mais:
+  - text: Há algo mais em que posso te ajudar?
+  - text: Posso lhe ajudar com algo mais?
+  utter_nao_ajudar:
+  - text: Tudo bem. Estarei aqui caso você precise de algo.
+  utter_cancelar_matricula:
+  - text: 'Entendido! O cancelamento de matrícula deve ser feito em algumas etapas:'
+  utter_cancelar_matricula_passos_1:
+  - text: Primeiramente, faça o download do requerimento disponível no [link](https://www.ifsc.edu.br/documents/35973/2018778/Cancelamento+Trancamento+e+Transfer%C3%AAncia+Externa.pdf/d5f9a6c2-0e30-4f19-a6a8-a238ec028caf) e preencha-o.
+  utter_cancelar_matricula_passos_2:
+  - text: Então, digitalize o requerimento e envie para a secretaria do IFSC Campus Gaspar em [secretaria.gaspar@ifsc.edu.br](mailto:secretaria.gaspar@ifsc.edu.br) junto de um documento de identificação. Caso o aluno seja menor de idade, no requerimento deve constar também a assinatura e documento do responsável. Caso necesário, o requerimento pode ser retirado impresso na secretaria do IFSC Campus Gaspar.
+  utter_cancelar_matricula_passos_3:
+  - text: Por fim, o documento passará por tramitação da Biblioteca Acadêmica e da Coordenadoria de Curso para análise. O aluno será informado por e-mail sobre o andamento e o resultado da análise.
+  utter_ask_rephrase:
+  - text: Desculpe. Não consegui entender o seu pedido. Você poderia tentar de novo?
+  utter_default:
+  - text: Desculpe, não consigo te ajudar. Você poderia tentar de novo?
+  utter_chegada_tardia:
+  - text: Vixe. Tente evitar atrasos, ok? Mas, se você chegou atrasado, você pode validar sua chegada tardia para um professor.
+  utter_contar_piada:
+  - text: "O que um pontinho vermelho está procurando em Gaspar?\nNove quadrados verdes. 🔴🟩"
+  - text: "O que o IFSC e o espaço têm em comum?\nAmbos estão cheios de estrelas. ⭐️"
+  - text: "Como que estudantes de informática se despedem?\n Com bye-bye-bytes. 👋"
+  - text: "O que é um terapeuta?\n1.024 gigapeutas."
+  - text: "int x=10; int y=10; return x+y; // Qual o nome do filme?\nO Código dá Vinte"
+  - text: "O que um álcool disse para o outro?\nEtanóis! 👋"
+  - text: "Beleza. Vou contar uma piada sobre potássio...\nKKKKKKKKKKKKK"
+  - text: "Sabe o que um cromossomo falou para o outro?\nCromossomos felizes!"
+  - text: "Um buraco negro é um tunel no fim da luz."
+  
+  utter_atestado_matricula:
+  - text: "Para o atestado de matrícula:\n\n• FÍSICO: Solicite presencialmente na secretaria acadêmica\n• DIGITAL: Acesse sua conta no SIGAA, vá em 'Ensino' e selecione 'Atestado de Matrícula'"
+
+  utter_atestado_frequencia:
+  - text: "Para solicitar o atestado de frequência, dirija-se à secretaria acadêmica."
+  #novos fluxos
+  utter_ask_nivel:
+  - text: "Para qual nível? (ensino médio ou graduação)"
+
+  utter_cursos_ensino_medio:
+  - text: "Cursos do ensino médio integrado:\n- Informática\n- Química"
+
+  utter_cursos_graduacao:
+  - text: "Cursos de graduação:\n- Design de Moda\n- Processos Gerenciais\n- Análise e Desenvolvimento de Sistemas"
+
+  utter_sem_info_dias:
+  - text: "Desculpe, não tenho informações sobre datas específicas das matérias no momento."
+
+  utter_docentes_ads:
+  - text: |
+      "Claro, o corpo docente do curso de Análise e Desenvolvimento de Sistemas (Informática) é:
+      Andrei de Souza Inácio - andrei.inacio@ifsc.edu.br
+      Andreu Carminati - andreu.carminati@ifsc.edu.br
+      Daniela Sbizera Justo - daniela.sbizera@ifsc.edu.br
+      Gustavo Cunha Guedes - gustavo.guedes@ifsc.edu.br
+      Leonardo Leiria Fernandes - leonardo.fernandes@ifsc.edu.br
+      Leonardo Ronald Perin Rauta - leonardo.rauta@ifsc.edu.br
+      Mateus Bizzotto Nunes - mateus.bizzotto@ifsc.edu.br
+      Rogério Antonio Schmitt - rogerio.schmitt@ifsc.edu.br
+      Romulo de Aguiar Beninca - romulo.beninca@ifsc.edu.br
+      Saulo Vargas - saulo.vargas@ifsc.edu.br
+      Tamer Stefani Guimaraes Cavalcante - tamer.cavalcante@ifsc.edu.br
+      Thiago Lipinski Paes - thiago.paes@ifsc.edu.br"
+  
+  utter_matriz_ads:
+  - text: |
+      "Aqui está a matriz curricular completa do curso de Análise e Desenvolvimento de Sistemas (ADS):
+
+      1º Nível
+      ARQ054701 - ARQUITETURA E ORGANIZAÇÃO DE COMPUTADORES - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      FAD054701 - FUNDAMENTOS DA ADMINISTRAÇÃO - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      IEN054701 - INTRODUÇÃO À ENGENHARIA DE SOFTWARE - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      IIN054701 - INGLÊS INSTRUMENTAL - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      IPG054701 - INTRODUÇÃO À PROGRAMAÇÃO - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      MAT054701 - MATEMÁTICA APLICADA - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+
+      2º Nível
+      BDD054702 - BANCO DE DADOS I - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      COM054702 - COMUNICAÇÃO APLICADA - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      ENI054702 - ENGENHARIA DE SOFTWARE I - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      PII054702 - PROGRAMAÇÃO PARA INTERNET I - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      PRE054702 - PROGRAMAÇÃO ESTRUTURADA - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+
+      3º Nível
+      AEX054703 - ATIVIDADES DE EXTENSÃO I - 40h (Extensão: 40h) - Obrigatória
+      BDS054703 - BANCO DE DADOS II - 60h (Teórica: 36h - EAD: 24h) - Obrigatória
+      ENG054703 - ENGENHARIA DE SOFTWARE II - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      POO054703 - PROGRAMAÇÃO ORIENTADA A OBJETOS - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      PPI054703 - PROGRAMAÇÃO PARA INTERNET II - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+
+      4º Nível
+      AET054704 - ATIVIDADES DE EXTENSÃO II - 40h (Extensão: 40h) - Obrigatória
+      ALG054704 - ALGORITMOS E ESTRUTURAS DE DADOS - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      DES054704 - DESENVOLVIMENTO PARA DISPOSITIVOS MÓVEIS - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      EES054704 - INFORMÁTICA, ÉTICA E SOCIEDADE - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      GEP054704 - GERÊNCIA DE PROJETOS - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      REC054704 - REDES DE COMPUTADORES - 60h (Teórica: 36h - EAD: 24h) - Obrigatória
+
+      5º Nível
+      FNE054705 - FUNDAMENTOS DE ESTATÍSTICA - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      IHM054705 - INTERFACE HUMANO-COMPUTADOR - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      PJI054705 - PROJETO INTEGRADOR I - 80h (Extensão: 64h - EAD: 16h) - Obrigatória
+      PRC054705 - PROGRAMAÇÃO CONCORRENTE E DISTRIBUÍDA - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      QDT054705 - QUALIDADE E TESTE DE SOFTWARE - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      [Disciplinas optativas disponíveis no 5º nível]
+
+      6º Nível
+      EMO054706 - EMPREENDEDORISMO - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      PIN054706 - PROJETO INTEGRADOR II - 80h (Extensão: 68h - EAD: 12h) - Obrigatória
+      SEG054706 - SEGURANÇA DA INFORMAÇÃO - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+      SIS054706 - SISTEMAS OPERACIONAIS - 40h (Teórica: 24h - EAD: 16h) - Obrigatória
+      [Disciplinas optativas disponíveis no 6º nível]"
+
+  utter_docentes_moda:
+    - text: |
+        "Professores do curso de Design de Moda:
+        Andressa Schneider Alves
+        André Lima Rodrigues
+        Bruna Lummertz Lima
+        Carolina Anderson Carioni Amorim
+        Daniele Deise Antunes Da Silveira Páris
+        Elen Makara
+        Elizabeth Wood Moçato de Oliveira Pimentel
+        Fernanda Trentini
+        Geannine Cristtina Ferreira Martins
+        Givaldo Bezerra da Hora
+        Jéssica Schneider
+        Káritha Bernardo De Macedo
+        Mariani Silveira"
+
+  utter_matriz_moda:
+    - text: |
+        "Matriz curricular do curso de Design de Moda:
+
+        1º Período
+        CRI055401 - PROCESSOS CRIATIVOS - 40h (Teórica: 32h - Extensão: 8h) - Obrigatória
+        DMO055401 - DESENHO DE MODA - 60h (Teórica: 52h - Extensão: 8h) - Obrigatória
+        ERG055401 - ERGONOMIA - 40h (Teórica: 28h - Extensão: 12h) - Obrigatória
+        HMA055401 - HISTÓRIA DA MODA E ARTE - 80h (Teórica: 80h) - Obrigatória
+        MCT055401 - METODOLOGIA CIENTÍFICA - 40h (Teórica: 34h - Extensão: 6h) - Obrigatória
+        MTM055401 - MATEMÁTICA APLICADA - 40h (Teórica: 40h) - Obrigatória
+        PMO055401 - PESQUISA DE MODA - 40h (Teórica: 34h - Extensão: 6h) - Obrigatória
+
+        2º Período
+        CMF055402 - COSTURA E MODELAGEM FEMININA - 80h (Teórica: 80h) - Obrigatória
+        HMB055402 - HISTÓRIA DA MODA BRASILEIRA - 40h (Teórica: 24h - Extensão: 16h) - Obrigatória
+        IMO055402 - ILUSTRAÇÃO DE MODA - 40h (Teórica: 32h - Extensão: 8h) - Obrigatória
+        MKT055402 - ADMINISTRAÇÃO DE MARKETING - 40h (Teórica: 30h - Extensão: 10h) - Obrigatória
+        MPM055402 - METODOLOGIA DE PROJETO DE DESIGN - 80h (Teórica: 72h - Extensão: 8h) - Obrigatória
+
+        3º Período
+        DTV055403 - DESENHO TÉCNICO DO VESTUÁRIO - 40h (Teórica: 40h) - Obrigatória
+        LCB055403 - LABORATÓRIO DE COSTURA BÁSICA - 40h (Teórica: 40h) - Obrigatória
+        MFE055403 - MODELAGEM FEMININA - 80h (Teórica: 80h) - Obrigatória
+        PPM055403 - PROJETO DE PRODUTO DE MODA FEMININA - 80h (Teórica: 80h) - Obrigatória
+        TXT055403 - TECNOLOGIA TÊXTIL - 80h (Teórica: 70h - Extensão: 10h) - Obrigatória
+
+        4º Período
+        ANP055404 - ANÁLISE DE PRODUTO DE VESTUÁRIO - 40h (Teórica: 20h - Extensão: 20h) - Obrigatória
+        BTX055404 - BENEFICIAMENTO TÊXTIL - 40h (Teórica: 30h - Extensão: 10h) - Obrigatória
+        LCF055404 - LABORATÓRIO DE CONFECÇÃO DE MODA FEMININA - 80h (Teórica: 80h) - Obrigatória
+        MAC055404 - MODELAGEM ASSISTIDA POR COMPUTADOR - 80h (Teórica: 80h) - Obrigatória
+        PPI055404 - PROJETO DE PRODUTO DE MODA INFANTIL E MASCULINA - 40h (Teórica: 40h) - Obrigatória
+        TIT055404 - TÓPICOS INTRODUTÓRIOS AO TRABALHO DE CONCLUSÃO DE CURSO - 40h (Teórica: 40h) - Obrigatória
+
+        5º Período
+        GEN055405 - GRADAÇÃO E ENCAIXE - 60h (Teórica: 60h) - Obrigatória
+        GPV055405 - GESTÃO DA PRODUÇÃO DO VESTUÁRIO - 60h (Teórica: 60h) - Obrigatória
+        IMC055405 - ILUSTRAÇÃO DE MODA ASSISTIDA POR COMPUTADOR - 40h (Teórica: 40h) - Obrigatória
+        LCI055405 - LABORATÓRIO DE CONFECÇÃO DE MODA INFANTIL E MASCULINA - 80h (Teórica: 80h) - Obrigatória
+        MIM055405 - MODELAGEM INFANTIL E MASCULINA - 80h (Teórica: 80h) - Obrigatória
+        PPL055405 - PROJETO DE PRODUTO DE MODA LIVRE - 40h (Teórica: 34h - Extensão: 6h) - Obrigatória
+
+        6º Período
+        CMM055406 - COSTURA E MODELAGEM DE MODA PRAIA E MODA ÍNTIMA - 80h (Teórica: 80h) - Optativa
+        LIB055406 - LIBRAS - 40h (Teórica: 40h) - Optativa
+        ATC055406 - ATIVIDADES COMPLEMENTARES - 100h (Teórica: 100h) - Obrigatória
+        LCA055406 - LABORATÓRIO DE CONFECÇÃO AVANÇADO - 80h (Teórica: 60h - Extensão: 20h) - Obrigatória
+        PMO055406 - PRODUÇÃO DE MODA - 80h (Teórica: 40h - Extensão: 40h) - Obrigatória
+        TCC055406 - TRABALHO DE CONCLUSÃO DE CURSO - 40h (Teórica: 40h) - Obrigatória
+        TRI055406 - MODELAGEM TRIDIMENSIONAL - 80h (Teórica: 60h - Extensão: 20h) - Obrigatória"
+
+  utter_coordenadora_moda:
+    - text: |
+        "Contatos da coordenação do curso de Design de Moda:
+        
+        Coordenadora: Káritha Bernardo de Macedo
+        E-mail: moda.gas@ifsc.edu.br
+        Telefone: (47) 3318-3719"
+    
+  utter_matriz_processos_gerenciais:
+    - text: |
+        "Matriz curricular do curso de Processos Gerenciais:
+
+        1º Período
+        CEM055601 - COMUNICAÇÃO EMPRESARIAL - 60h (Teórica: 28h - Prática: 8h - EAD: 24h) - Obrigatória
+        FAD055601 - FUNDAMENTOS DA ADMINISTRAÇÃO - 80h (Teórica: 40h - Prática: 8h - EAD: 32h) - Obrigatória
+        GEP055601 - GESTÃO ESTRATÉGICA DE PESSOAS - 80h (Teórica: 40h - Prática: 8h - EAD: 32h) - Obrigatória
+        IAP055601 - INFORMÁTICA APLICADA - 40h (Prática: 24h - EAD: 16h) - Obrigatória
+        MPA055601 - METODOLOGIA DA PESQUISA EM ADMINISTRAÇÃO - 40h (Teórica: 16h - Prática: 8h - EAD: 16h) - Obrigatória
+
+        2º Período
+        FEC055602 - FUNDAMENTOS DE ECONOMIA - 40h (Teórica: 16h - Prática: 8h - EAD: 16h) - Obrigatória
+        GMA055602 - GESTÃO DE MARKETING - 80h (Teórica: 40h - Prática: 8h - EAD: 32h) - Obrigatória
+        GSE055602 - GESTÃO SOCIAL E ECONOMIA SOLIDÁRIA - 40h (Teórica: 20h - Prática: 4h - EAD: 16h) - Obrigatória
+        MFI055602 - MATEMÁTICA FINANCEIRA - 80h (Teórica: 36h - Prática: 12h - EAD: 32h) - Obrigatória
+
+        3º Período
+        CGE055603 - CONTABILIDADE GERENCIAL - 60h (Teórica: 28h - Prática: 8h - EAD: 24h) - Obrigatória
+        FES055603 - FUNDAMENTOS DE ESTATÍSTICA - 40h (Teórica: 16h - Prática: 8h - EAD: 16h) - Obrigatória
+        GCA055603 - GESTÃO DA CADEIA DE SUPRIMENTOS - 60h (Teórica: 28h - Prática: 8h - EAD: 24h) - Obrigatória
+        GCO055603 - GESTÃO COMERCIAL E DE VENDAS - 40h (Teórica: 16h - Prática: 8h - EAD: 16h) - Obrigatória
+        GPR055603 - GESTÃO DE PROJETOS E INOVAÇÃO - 80h (Teórica: 38h - Prática: 10h - EAD: 32h) - Obrigatória
+
+        4º Período
+        ANC055604 - ANÁLISE DE CUSTOS - 40h (Teórica: 16h - Prática: 8h - EAD: 16h) - Obrigatória
+        ESO055604 - ÉTICA E SOCIEDADE - 40h (Teórica: 20h - Prática: 4h - EAD: 16h) - Obrigatória
+        GPO055604 - GESTÃO DA PRODUÇÃO E OPERAÇÕES - 80h (Teórica: 40h - Prática: 8h - EAD: 32h) - Obrigatória
+        GQU055604 - GESTÃO DA QUALIDADE E DOS PROCESSOS - 40h (Teórica: 16h - Prática: 8h - EAD: 16h) - Obrigatória
+        LAG055604 - LEGISLAÇÃO APLICADA À GESTÃO - 80h (Teórica: 40h - Prática: 8h - EAD: 32h) - Obrigatória
+
+        5º Período
+        GDO055605 - GESTÃO E DIVERSIDADE NAS ORGANIZAÇÕES - 40h (Teórica: 16h - Prática: 8h - EAD: 16h) - Obrigatória
+        GEF055605 - GESTÃO FINANCEIRA - 80h (Teórica: 38h - Prática: 10h - EAD: 32h) - Obrigatória
+        JEM055605 - JOGOS DE EMPRESAS - 40h (Teórica: 4h - Prática: 20h - EAD: 16h) - Obrigatória
+        PES055605 - PLANEJAMENTO ESTRATÉGICO - 40h (Teórica: 16h - Prática: 8h - EAD: 16h) - Obrigatória
+        PEX055605 - PROJETO DE EXTENSÃO I - 80h (Teórica: 48h - EAD: 32h) - Obrigatória
+
+        6º Período
+        LIO055606 - LIBRAS (OPTATIVA) - 40h (EAD: 40h) - Optativa
+        ATC055606 - ATIVIDADES COMPLEMENTARES - 100h (Teórica: 100h) - Obrigatória
+        COR055606 - CONSULTORIA ORGANIZACIONAL - 80h (Teórica: 40h - Prática: 8h - EAD: 32h) - Obrigatória
+        EMO055606 - EMPREENDEDORISMO - 60h (Teórica: 28h - Prática: 8h - EAD: 24h) - Obrigatória
+        PEX055606 - PROJETO DE EXTENSÃO II - 100h (Teórica: 60h - EAD: 40h) - Obrigatória"
+
+  utter_docentes_processos_gerenciais:
+    - text: |
+        "Corpo docente do curso de Processos Gerenciais:
+        
+        Bárbara Silvana Sabino - http://lattes.cnpq.br/5435736758557028
+        Caroline Reis Vieira Santos Rauta - http://lattes.cnpq.br/3519380803739395
+        Daniel Felipe Jimenez Monteiro - http://lattes.cnpq.br/1394710909463952
+        Edmundo Pozes da Silva - http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4798630H3
+        Elizabeth Wood Moçato de Oliveira Pimentel - http://lattes.cnpq.br/7956642582612449
+        Giane Carmem Alves de Carvalho - http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4759197A8
+        Givaldo Bezerra da Hora - http://lattes.cnpq.br/0867941979773267
+        Glaucia Marian Tenfen - http://lattes.cnpq.br/2089763560984968
+        Graça Aparecida Prestes Sabadin - http://lattes.cnpq.br/2471846636878525
+        Graciane Regina Pereira - http://lattes.cnpq.br/1333647435867451
+        Saulo Vargas - http://lattes.cnpq.br/2880461463859130
+        Luciano Rosa - http://lattes.cnpq.br/6355102991133961
+        Márcio Henrique Fronteli - http://lattes.cnpq.br/6660745229448667
+        Paulo Guilherme da Silva Stahnke - http://lattes.cnpq.br/4891462276103090
+        Vanessa Edy Dagnoni Mondini - http://lattes.cnpq.br/4925973469417628"
+
+#fluxos de contatos
+  utter_biblioteca_info:
+    - text: |
+        "Biblioteca do IFSC Gaspar | Horário de funcionamento: 07h30 às 21h00 - Segunda à Sexta | Contato: biblioteca.gaspar@ifsc.edu.br - (47) 3318-3714"
+
+  utter_recepcao_info:
+    - text: "Recepção - Contato: (47) 3318-3723"
+
+  utter_secretaria_info:
+    - text: "Secretaria - Contato: (47) 3318-3701 | E-mail: secretaria.gaspar@ifsc.edu.br | Horário: 7h às 22h"
+
+  utter_coord_pedagogica_info:
+    - text: "Coordenação Pedagógica - Assuntos de ensino-aprendizagem - Contato: (47) 3318-3711 | E-mail: coord.pedagogica.gas@ifsc.edu.br | Horário: 8h às 21h"
+
+  utter_estagio_emprego_info:
+    - text: "Estágio e Emprego - Contato: (47) 3318-3711 | E-mail: estagioeemprego.gaspar@ifsc.edu.br | Horário: 8h às 21h"
+
+  utter_assistencia_estudantil_info:
+    - text: "Assistência Estudantil (IVS, Paevs) - Contato: (47) 3318-3711 | E-mail: assistenciaestudantil.gas@ifsc.edu.br | Horário: 8h às 21h"
+
+  utter_registro_academico_info:
+    - text: "Coord. de Registro Acadêmico - Contato: (47) 3318-3728 | E-mail: ra.gas@ifsc.edu.br | Horário: 8h às 20h"
+
+  utter_assessoria_direcao_info:
+  - text: "Assessoria da Direção-geral - Contato: (47) 3318-3705 | E-mail: assessoria.gaspar@ifsc.edu.br | Horário: 7h30 às 18h30"
+
+  utter_relacoes_externas_info:
+    - text: "Coordenadoria de Relações Externas - Contato: (47) 3318-3711 | E-mail: rexternas.gas@ifsc.edu.br | Horário: 8h às 12h e 13h às 17h"
+
+  utter_infraestrutura_info:
+    - text: "Coordenadoria de Infraestrutura e Patrimônio - Contato: (47) 3318-3708 | E-mails: infraestrutura.gas@ifsc.edu.br e patrimonio.gas@ifsc.edu.br | Horário: 7h às 11h30 e 12h30 às 16h"
+
+  utter_planejamento_financas_info:
+    - text: "Coordenadoria de Planejamento, Materiais e Finanças - Contato: (47) 3318-3708 | E-mail: compras.gaspar@ifsc.edu.br | Horário: 7h às 17h"
+
+  utter_tic_info:
+    - text: "Coordenadoria de Tecnologia da Informação e Comunicação - Contato: (47) 3318-3713 | E-mail: ti.gaspar@ifsc.edu.br | Horário: 7h às 21h30"
+
+  utter_gestao_pessoas_info:
+    - text: "Coordenadoria de Gestão de Pessoas - Contato: (47) 3318-3707 | E-mail: cgp.gas@ifsc.edu.br | Horário: 7h às 19h"
+
+  utter_coord_informatica_info:
+    - text: "Coord. Curso Técnico em Informática - Coordenador: Andrei de Souza Inácio | E-mail: informatica.tec.gas@ifsc.edu.br | Horário: Consulte link disponível no site"
+
+  utter_coord_quimica_info:
+    - text: "Coord. Curso Técnico em Química - Coordenador: Carlos Geovanni Alves Ledra | Telefone: (47) 3318-3712 | E-mail: quimica.gaspar@ifsc.edu.br | Horário: Consulte link disponível no site"
+
+  utter_coord_modelagem_info:
+    - text: "Coord. Curso Técnico em Modelagem - Coordenadora: Geannine Cristtina Ferreira Martins | Telefone: (47) 3318-3738 | E-mail: modelagem.gas@ifsc.edu.br"
+
+  utter_coord_administracao_info:
+    - text: "Coord. Curso Técnico em Administração - Coordenadora: Elizabeth Wood Mocato de Oliveira Pimentel | Telefone: (47) 3318-3700 | E-mail: adm.tec.gas@ifsc.edu.br"
+
+  utter_coord_meio_ambiente_info:
+    - text: "Coord. Curso Técnico em Meio Ambiente - Coordenador: Bruno Menezes Galindro | Telefone: (47) 3318-3731 | E-mail: meioambiente.tec.gas@ifsc.edu.br | Horário: Consulte link disponível no site"
+
+  utter_coord_ads_info:
+    - text: "Coord. Curso Superior em ADS - Coordenador: Maykon Chagas de Souza | Telefone: (47) 3318-3716 | E-mail: sistemas.tecnol.gas@ifsc.edu.br | Horário: Consulte link disponível no site"
+
+  utter_coord_moda_info:
+    - text: "Coord. Curso Superior em Design de Moda - Coordenadora: Káritha Bernardo de Macedo | Telefone: (47) 3318-3719 | E-mail: moda.gas@ifsc.edu.br | Horário: Consulte link disponível no site"
+
+  utter_coord_pg_info:
+    - text: "Coord. Curso Superior em Processos Gerenciais - Coordenador: Marcio Henrique Fronteli | Telefone: (47) 3877-9052 | E-mail: pos@ifsc.edu.br | Horário: Consulte link disponível no site"
+
+  utter_coord_pos_info:
+    - text: "Coord. Pós-graduação em Pesquisa Pedagógica - Coordenador: Fernando Mezadri | E-mail: pos.gaspar@ifsc.edu.br | Horário: Consulte link disponível no site"
+
+  utter_guarita_veiculos_info:
+  - text: "Guarita de Veículos - Contato: (47) 3318-3722"
+
+  utter_grupos_atividades:
+  - text: "Grupos de atividade do Campus Gaspar:\n\n1. Neabi - Núcleo de estudos Afro-brasileiros e Indígenas\n2. Elas Digitais\n3. GFIG – Grupo de Foguetes\n4. BioIFSC - Grupo de Pesquisa em Bioinformática"
+
+  utter_neabi_desc:
+    - text: "Neabi - Núcleo de estudos Afro-brasileiros e Indígenas\n\nO núcleo foi criado formalmente pela Resolução 04/2015 CCG em 29 de abril de 2015. Sua finalidade é a produção e disseminação do conhecimento por meio do ensino, pesquisa e extensão no desenvolvimento de políticas de diversidade étnico-racial, promoção de igualdade e valorização das populações de origem africana e indígena, com base nas leis 10639/2003 e 11.645/2008, que estabelecem as diretrizes e bases da educação nacional para incluir no currículo oficial da rede de ensino a obrigatoriedade da temática 'História e cultura Afro-Brasileira e Indígena'."
+
+  utter_elas_digitais_desc:
+    - text: "Elas Digitais\n\nDesenvolvido no IFSC Câmpus Gaspar, o projeto tem por objetivo popularizar as contribuições científicas feitas por mulheres ao longo da história e fortalecer a participação da mulher na construção da ciência. Para isso, propõe a criação de jogos com essa temática de forma a estimular a participação delas na tecnologia.\n\nResponsáveis pelo projeto:\nProfª Caroline Reis Vieira Santos - caroline.reis@ifsc.edu.br\nProfª Daniela Sbizera Justo - daniela.sbizera@ifsc.edu.br\nProf. Maykon Chagas de Souza - maykon.chagas@ifsc.edu.br"
+
+  utter_bioifsc_desc:
+    - text: "BioIFSC - Grupo de Pesquisa em Bioinformática e Biologia Computacional\n\nEstabelecido em 2023 com o propósito de realizar atividades de pesquisa, ensino e extensão que contribuam com avanços em diversos setores da saúde e biologia geral através do uso da Biologia Computacional. As principais linhas de atuação englobam biologia estrutural, desenvolvimento de softwares especializados, genômica, proteômica, imunoinformática e formação de profissionais especializados."
+
+  utter_gfig_desc:
+    - text: "GFIG - Grupo de Foguetes do Câmpus Gaspar\n\nInformações detalhadas sobre este grupo não estão disponíveis no momento."
+
+  utter_frequencia_info:
+    - text: "Frequência mínima:\n\nPara evitar reprovação, você deve comparecer a no mínimo 75% das atividades de cada disciplina. Isso vale para aulas presenciais, sábados letivos e atividades EAD síncronas."
+
+  utter_rematricula_info:
+    - text: "Rematrícula:\n\nCursos modulares (técnicos subsequentes, concomitantes e graduação): faça sua rematrícula online pelo SIGAA nas datas do calendário acadêmico.\n\nCursos seriados (FIC, Proeja, técnicos integrados): rematrícula é automática, mas verifique seus dados. Consulte sempre o calendário acadêmico e o RDP para dúvidas."
+
+  utter_avaliacao_info:
+    - text: "Sistema de avaliação:\n\nNotas de 0 a 10 (valores inteiros), com média mínima 6 para aprovação. Critérios específicos constam no plano de ensino de cada disciplina. Avaliações devem estimular pesquisa, criatividade e cidadania."
+
+  utter_recuperacao_info:
+    - text: "Perdeu uma avaliação?\n\n1) Comunique à Secretaria em até 3 dias úteis do início do afastamento\n2) Encaminhe requerimento à Coordenação em até 2 dias após retorno, com:\n- Data/horário da prova\n- Disciplina\n- Professor\nAtestados médicos são obrigatórios para justificativa de saúde."
+
+  utter_afastamento_info:
+    - text: "Afastamento prolongado (+15 dias):\n\nEm casos de saúde ou gravidez, solicite exercício domiciliar na coordenação do curso. Seu professor preparará material especial e as faltas serão abonadas no conselho de classe."
+
+  utter_transferencia_interna_info:
+    - text: "Transferência interna:\n\nDisponível após 1 semestre cursado. Vagas anunciadas em edital (mesma modalidade de curso). Requer documentação específica e matrícula ativa ou trancada no curso original."
+
+  utter_transferencia_externa_info:
+    - text: "Transferência externa:\n\nVagas divulgadas semestralmente em edital. Deve ser para curso equivalente (técnico para técnico, graduação para graduação). Exige matrícula ativa ou trancada na instituição de origem."
+
+  utter_retorno_diploma_info:
+    - text: "Retorno com diploma:\n\nPara quem já concluiu curso técnico ou superior. Vagas anunciadas em edital com análise de histórico escolar. Curso anterior deve ser reconhecido pelo MEC."
+
+  utter_normas_academicas:
+    - text: "Normas Acadêmicas do IFSC;
+      FREQUÊNCIA
+      Para evitar a famosa reprovação por faltas, você deve comparecer a, no mínimo, 75% das atividades correspondentes a cada componente curricular. Em cursos totalmente presenciais, isso significa a presença nas aulas, incluindo os sábados letivos. No caso de cursos totalmente ou com apenas algumas disciplinas EAD, isso também vale para disciplinas que contam como hora-atividade ou aulas síncronas.
+
+      REMATRÍCULAS
+      As rematrículas funcionam de maneira diferente para os cursos com matrícula por componente curricular e os cursos com matrícula seriada. Os cursos de matrícula por componente curricular (técnicos subsequentes, concomitantes e graduação) devem fazer rematrícula online pelo Portal do Aluno (Sigaa). Já os cursos com matrícula seriada (FIC, Proeja, técnicos integrados) têm rematrícula automática, mas é importante verificar os dados.
+
+      SISTEMA DE AVALIAÇÃO
+      No IFSC, as notas vão de zero a 10, apenas em valores inteiros. Para ter aprovação em um componente curricular você precisa tirar no mínimo nota 6. Os critérios específicos estão no plano de ensino de cada professor.
+
+      PERDA DE AVALIAÇÃO
+      Se perder alguma avaliação por motivos justificados, você deve;
+      1) Comunicar à Secretaria Acadêmica em até 3 dias letivos
+      2) Encaminhar requerimento à Coordenação em até 2 dias após retorno, com documentos comprobatórios
+
+      AFASTAMENTO POR SAÚDE
+      Para afastamentos superiores a 15 dias, é possível solicitar exercício domiciliar, com programa de estudos especial preparado pelos professores. As faltas serão abonadas no conselho de classe.
+
+      TRANSFERÊNCIA INTERNA
+      Disponível após um semestre cursado, mediante editais específicos. Deve ser para curso da mesma modalidade (técnico para técnico, graduação para graduação).
+
+      TRANSFERÊNCIA EXTERNA
+      Vagas divulgadas semestralmente em editais, para estudantes de outras instituições. Também exige equivalência de modalidade.
+
+      RETORNO DE PORTADOR DE DIPLOMA
+      Para quem já concluiu curso técnico ou superior, com análise de histórico escolar. Curso anterior deve ser reconhecido pelo MEC.
+
+      TRANCAMENTO
+      Pode ser solicitado por 2 meses (cursos técnicos) ou 4 meses (graduação). Mantém a vaga reservada para retorno.
+
+      Para saber todas as Normas Acadêmicas, baixe o PDF do Regulamento Didático-Pedagógico no portal do IFSC; https://www.ifsc.edu.br/documentos-norteadores"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

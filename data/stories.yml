@@ -1,0 +1,427 @@
+version: "3.1"
+
+stories:
+  - story: Saudação
+    steps:
+    - intent: saudar
+    - action: utter_saudar
+    - action: utter_como_ajudar
+  
+  - story: Testando
+    steps:
+    - intent: saudar
+    - action: utter_saudar
+    - action: utter_como_ajudar
+    - intent: testando
+    - action: utter_testando
+  
+  - story: Não ajudar
+    steps:
+    - action: utter_como_ajudar
+    - intent: nao_ajudar
+    - action: utter_nao_ajudar
+  
+  - story: Perguntar localização do campus
+    steps:
+    - intent: localizacao_campus
+    - action: utter_localizacao_campus
+    - action: utter_como_ajudar_mais
+  
+  - story: Perguntar localização do campus
+    steps:
+    - intent: saudar
+    - action: utter_saudar
+    - action: utter_como_ajudar
+    - intent: localizacao_campus
+    - action: utter_localizacao_campus
+    - action: utter_como_ajudar_mais
+  
+  - story: Perguntar localização e horários do campus
+    steps:
+    - intent: localizacao_campus
+    - action: utter_localizacao_campus
+    - action: utter_como_ajudar_mais
+    - intent: horario_campus
+    - action: action_processar_horario_campus
+    - action: utter_como_ajudar_mais
+
+  - story: Perguntar horários do campus
+    steps:
+    - intent: horario_campus
+    - action: action_processar_horario_campus
+    - action: utter_como_ajudar_mais
+  
+  - story: Informar chegada tardia
+    steps:
+    - intent: chegada_tardia
+    - action: utter_chegada_tardia
+    - action: utter_como_ajudar_mais
+
+  - story: Perguntar horários do campus
+    steps:
+    - intent: saudar
+    - action: utter_saudar
+    - action: utter_como_ajudar
+    - intent: horario_campus
+    - action: action_processar_horario_campus
+    - action: utter_como_ajudar_mais
+  
+  - story: Cancelar matrícula
+    steps:
+    - intent: cancelar_matricula
+    - action: utter_cancelar_matricula
+    - action: utter_cancelar_matricula_passos_1
+    - action: utter_cancelar_matricula_passos_2
+    - action: utter_cancelar_matricula_passos_3
+    - action: utter_como_ajudar_mais
+    - intent: out_of_scope
+    - action: utter_default
+
+  - story: Site do IFSC
+    steps:
+    - intent: site_campus
+    - action: utter_site_campus
+    - action: utter_como_ajudar_mais
+
+  - story: Atestado matrícula
+    steps:
+    - intent: pedir_atestado_matricula
+    - action: utter_atestado_matricula
+    - action: utter_como_ajudar_mais
+
+  - story: Atestado frequência
+    steps:
+    - intent: pedir_atestado_frequencia
+    - action: utter_atestado_frequencia
+    - action: utter_como_ajudar_mais
+
+#novos fluxos 
+
+  - story: Cursos disponíveis (ensino médio)
+    steps:
+    - intent: perguntar_cursos
+    - action: utter_ask_nivel
+    - intent: ensino_medio
+    - action: utter_cursos_ensino_medio
+    - action: utter_como_ajudar_mais
+
+  - story: Cursos disponíveis (graduação)
+    steps:
+    - intent: perguntar_cursos
+    - action: utter_ask_nivel
+    - intent: graduacao
+    - action: utter_cursos_graduacao
+    - action: utter_como_ajudar_mais
+
+  - story: Dias de aula
+    steps:
+    - intent: perguntar_dias_aula
+    - action: utter_sem_info_dias
+    - action: utter_como_ajudar_mais
+
+  - story: Docentes ADS/Informática
+    steps:
+    - intent: perguntar_docentes_ads
+    - action: utter_docentes_ads
+    - action: utter_como_ajudar_mais
+
+  - story: Matriz curricular ADS
+    steps:
+    - intent: perguntar_matriz_ads
+    - action: utter_matriz_ads
+    - action: utter_como_ajudar_mais
+
+  - story: Docentes Moda
+    steps:
+    - intent: perguntar_docentes_moda
+    - action: utter_docentes_moda
+    - action: utter_como_ajudar_mais
+
+  - story: Matriz curricular Moda
+    steps:
+    - intent: perguntar_matriz_moda
+    - action: utter_matriz_moda
+    - action: utter_como_ajudar_mais
+
+  - story: Contato coordenadora Moda
+    steps:
+    - intent: perguntar_coordenadora_moda
+    - action: utter_coordenadora_moda
+    - action: utter_como_ajudar_mais
+
+  - story: Matriz curricular Processos Gerenciais
+    steps:
+    - intent: perguntar_matriz_processos_gerenciais
+    - action: utter_matriz_processos_gerenciais
+    - action: utter_como_ajudar_mais
+
+  - story: Docentes Processos Gerenciais
+    steps:
+    - intent: perguntar_docentes_processos_gerenciais
+    - action: utter_docentes_processos_gerenciais
+    - action: utter_como_ajudar_mais
+
+  - story: Informações da Biblioteca
+    steps:
+    - intent: perguntar_biblioteca
+    - action: utter_biblioteca_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações da Recepção
+    steps:
+    - intent: perguntar_recepcao
+    - action: utter_recepcao_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações da Secretaria
+    steps:
+    - intent: perguntar_secretaria
+    - action: utter_secretaria_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações da Coordenação Pedagógica
+    steps:
+    - intent: perguntar_coord_pedagogica
+    - action: utter_coord_pedagogica_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações de Estágio e Emprego
+    steps:
+    - intent: perguntar_estagio_emprego
+    - action: utter_estagio_emprego_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações da Assistência Estudantil
+    steps:
+    - intent: perguntar_assistencia_estudantil
+    - action: utter_assistencia_estudantil_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações do Registro Acadêmico
+    steps:
+    - intent: perguntar_registro_academico
+    - action: utter_registro_academico_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Assessoria Direção
+    steps:
+    - intent: perguntar_assessoria_direcao
+    - action: utter_assessoria_direcao_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Relações Externas
+    steps:
+    - intent: perguntar_relacoes_externas
+    - action: utter_relacoes_externas_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Infraestrutura
+    steps:
+    - intent: perguntar_infraestrutura
+    - action: utter_infraestrutura_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Planejamento Finanças
+    steps:
+    - intent: perguntar_planejamento_financas
+    - action: utter_planejamento_financas_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações TIC
+    steps:
+    - intent: perguntar_tic
+    - action: utter_tic_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Gestão Pessoas
+    steps:
+    - intent: perguntar_gestao_pessoas
+    - action: utter_gestao_pessoas_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Coord Informática
+    steps:
+    - intent: perguntar_coord_informatica
+    - action: utter_coord_informatica_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Coord Química
+    steps:
+    - intent: perguntar_coord_quimica
+    - action: utter_coord_quimica_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Coord Modelagem
+    steps:
+    - intent: perguntar_coord_modelagem
+    - action: utter_coord_modelagem_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Coord Administração
+    steps:
+    - intent: perguntar_coord_administracao
+    - action: utter_coord_administracao_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Coord Meio Ambiente
+    steps:
+    - intent: perguntar_coord_meio_ambiente
+    - action: utter_coord_meio_ambiente_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Coord ADS
+    steps:
+    - intent: perguntar_coord_ads
+    - action: utter_coord_ads_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Coord Moda
+    steps:
+    - intent: perguntar_coord_moda
+    - action: utter_coord_moda_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Coord PG
+    steps:
+    - intent: perguntar_coord_pg
+    - action: utter_coord_pg_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Coord Pós
+    steps:
+    - intent: perguntar_coord_pos
+    - action: utter_coord_pos_info
+    - action: utter_como_ajudar_mais
+
+  - story: Informações Guarita Veículos
+    steps:
+    - intent: perguntar_guarita_veiculos
+    - action: utter_guarita_veiculos_info
+    - action: utter_como_ajudar_mais
+
+  - story: Listar grupos de atividades
+    steps:
+    - intent: perguntar_grupos_atividades
+    - action: utter_grupos_atividades
+    - action: utter_como_ajudar_mais
+
+  - story: Descrição NEABI
+    steps:
+    - intent: perguntar_neabi
+    - action: utter_neabi_desc
+    - action: utter_como_ajudar_mais
+
+  - story: Descrição Elas Digitais
+    steps:
+    - intent: perguntar_elas_digitais
+    - action: utter_elas_digitais_desc
+    - action: utter_como_ajudar_mais
+
+  - story: Descrição BioIFSC
+    steps:
+    - intent: perguntar_bioifsc
+    - action: utter_bioifsc_desc
+    - action: utter_como_ajudar_mais
+
+  - story: Descrição GFIG
+    steps:
+    - intent: perguntar_gfig
+    - action: utter_gfig_desc
+    - action: utter_como_ajudar_mais
+
+  - story: Norma de Frequência
+    steps:
+    - intent: perguntar_frequencia
+    - action: utter_frequencia_info
+    - action: utter_como_ajudar_mais
+
+  - story: Norma de Rematrícula
+    steps:
+    - intent: perguntar_rematricula
+    - action: utter_rematricula_info
+    - action: utter_como_ajudar_mais
+
+  - story: Norma de Avaliação
+    steps:
+    - intent: perguntar_avaliacao
+    - action: utter_avaliacao_info
+    - action: utter_como_ajudar_mais
+
+  - story: Norma de Recuperação
+    steps:
+    - intent: perguntar_recuperacao
+    - action: utter_recuperacao_info
+    - action: utter_como_ajudar_mais
+
+  - story: Norma de Afastamento
+    steps:
+    - intent: perguntar_afastamento
+    - action: utter_afastamento_info
+    - action: utter_como_ajudar_mais
+
+  - story: Norma Transferência Interna
+    steps:
+    - intent: perguntar_transferencia_interna
+    - action: utter_transferencia_interna_info
+    - action: utter_como_ajudar_mais
+
+  - story: Norma Transferência Externa
+    steps:
+      - intent: perguntar_transferencia_externa
+      - action: utter_transferencia_externa_info
+      - action: utter_como_ajudar_mais
+
+  - story: Norma Retorno com Diploma
+    steps:
+      - intent: perguntar_retorno_diploma
+      - action: utter_retorno_diploma_info
+      - action: utter_como_ajudar_mais
+
+  - story: Normas Acadêmicas
+    steps:
+      - intent: perguntar_normas_academicas
+      - action: utter_normas_academicas
+      - action: utter_como_ajudar_mais
+
+  - story: Informações sobre período de validação
+    steps:
+      - intent: periodo_validacao
+      - action: action_consultar_dados_dinamicos
+      - action: utter_como_ajudar_mais
+
+  - story: Informações sobre cancelamento de UC
+    steps:
+      - intent: cancelamento_uc
+      - action: action_consultar_dados_dinamicos
+      - action: utter_como_ajudar_mais
+
+  - story: Informações sobre solicitação de formatura
+    steps:
+      - intent: solicitacao_formatura
+      - action: action_consultar_dados_dinamicos
+      - action: utter_como_ajudar_mais
+
+  - story: Informação sobre trancamento
+    steps:
+      - intent: periodo_trancamento
+      - action: action_consultar_dados_dinamicos
+      - action: utter_como_ajudar_mais
+
+  - story: Informação sobre envio de documentos
+    steps:
+      - intent: periodo_envio_documentacao
+      - action: action_consultar_dados_dinamicos
+      - action: utter_como_ajudar_mais
+
+  - story: Informação sobre recesso
+    steps:
+      - intent: recesso_escolar
+      - action: action_consultar_dados_dinamicos
+      - action: utter_como_ajudar_mais
+
+  - story: Informação sobre editais de pesquisa e extensão
+    steps:
+      - intent: editais_pesquisa_extensao
+      - action: action_consultar_dados_dinamicos
+      - action: utter_como_ajudar_mais
+

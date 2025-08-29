@@ -1,0 +1,8 @@
+INTENTS,VALOR_1,VALOR_2,TEXTO_RESPOSTA
+periodo_validacao,01/01/2025,02/01/2025,"O período de validação de matrícula para o semestre atual é de [VALOR_1] até [VALOR_2]."
+cancelamento_uc,01/01/2025,02/01/2025,"O período para cancelamento de matrícula em Unidades Curriculares (UCs) é de [VALOR_1] até [VALOR_2]. Para cancelar: 1. Acesse o SIGAA no menu 'Matrícula' 2. Selecione 'Cancelamento de Matrícula em Componentes' 3. Escolha as UCs que deseja cancelar. Atenção: o cancelamento só é permitido dentro deste prazo e pode impactar sua carga horária mínima."
+solicitacao_formatura,01/01/2025,02/01/2025,"O período para solicitação de formatura no IFSC Câmpus Gaspar ocorre anualmente de [VALOR_1] até [VALOR_2]."
+periodo_trancamento,01/01/2025,02/01/2025,"O período de trancamento de matrícula ocorre de [VALOR_1] até [VALOR_2]."
+periodo_envio_documentacao,01/01/2025,02/01/2025,"O período para envio de documentação é de [VALOR_1] até [VALOR_2]."
+recesso_escolar,01/01/2025,02/01/2025,"O recesso escolar está previsto para o período de [VALOR_1] até [VALOR_2]."
+editais_pesquisa_extensao,www.ifsc.edu.br/,,"Os editais de pesquisa e extensão estão disponíveis em: [VALOR_1]"

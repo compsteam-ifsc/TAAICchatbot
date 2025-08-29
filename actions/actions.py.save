@@ -1,0 +1,103 @@
+import time
+import json
+from typing import Any, Text, Dict, List
+
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
+
+from llama import generator, tokenizer
+
+PROMPT_INICIAL = """Responda somente um JSON no formato {"intent": "<saudacao|solicitar_atestado|nlu_fallback>", "text": "<sua resposta aqui>"}.
+Nenhuma explicação extra. Nenhum comentário. Nenhuma palavra fora do JSON.
+
+---
+Usuário: Olá!
+Chatbot: {"intent": "saudacao", "text": "E aí? Eu sou o chatbot do IFSC Câmpus Gaspar. Em que posso ajudar?"}
+
+Usuário: quero atestado de matrícula
+Chatbot: {"intent": "solicitar_atestado", "text": "Você pode obter seu documento digitalmente ou fisicamente. Qual você prefere?"}
+
+Usuário: quero digital
+Chatbot: {"intent": "solicitar_atestado", "text": "Perfeito! Para emitir seu atestado digital, acesse o SIGAA (https://sigaa.ifsc.edu.br)."}
+
+Usuário: quero em papel
+Chatbot: {"intent": "solicitar_atestado", "text": "Desculpe, para obter em papel, procure a secretaria do campus."}
+---
+
+Agora responda a próxima mensagem do usuário:
+---
+"""
+
+def construir_historico(tracker: Tracker, max_turnos: int = 3) -> str:
+    eventos = [e for e in tracker.events if e.get("event") in ["user", "bot"]]
+    historico = []
+    for evento in reversed(eventos[-max_turnos*2:]):
+        if evento["event"] == "user":
+            historico.insert(0, f"Usuário: {evento.get('text', '')}")
+        elif evento["event"] == "bot":
+            historico.insert(0, f"Chatbot: {evento.get('text', '')}")
+    return "\n".join(historico)
+
+def extrair_json_valido(texto: str) -> dict:
+    try:
+        inicio = texto.find('{')
+        fim = texto.rfind('}') + 1
+        if inicio == -1 or fim == -1:
+            raise ValueError("Delimitadores de JSON não encontrados.")
+        json_str = texto[inicio:fim]
+        return json.loads(json_str)
+    except Exception as e:
+        print(f"❌ Erro ao interpretar JSON: {e}")
+        return {"intent": "nlu_fallback", "text": "Desculpe, não entendi. Pode repetir?"}
+
+class ActionLlamaResponder(Action):
+    def name(self) -> Text:
+        return "action_llama_responder"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        user_message = tracker.latest_message.get("text", "").strip()
+
+        if not user_message:
+            dispatcher.utter_message(text="Desculpe, não entendi sua pergunta.")
+            return []
+
+        historico = construir_historico(tracker)
+        prompt = f"{PROMPT_INICIAL}\n{historico}\nUsuário: {user_message}\nChatbot:"
+
+        generation_params = {
+            "max_new_tokens": 880,
+            "temperature": 0.5,
+            "top_k": 30,
+            "top_p": 0.9,
+            "do_sample": True,
+            "eos_token_id": tokenizer.eos_token_id,
+            "pad_token_id": tokenizer.eos_token_id,
+        }
+
+        print("⏳ Executando modelo LLaMA...")
+        start = time.time()
+
+        try:
+            output = generator(prompt, **generation_params)
+            end = time.time()
+            print(f"✅ Resposta gerada em {end - start:.2f}s")
+
+            resposta_bruta = output[0]["generated_text"].replace(prompt, "").strip()
+            print(f"📝 Resposta recebida: {resposta_bruta}")
+
+            data = extrair_json_valido(resposta_bruta)
+            predicted_intent = data.get("intent", "nlu_fallback")
+            resposta = data.get("text", "Desculpe, tive um problema ao processar sua solicitação. Por favor, reformule sua pergunta.")
+
+        except Exception as e:
+            print(f"❌ Erro: {str(e)}")
+            predicted_intent = "nlu_fallback"
+            resposta = "Desculpe, tive um problema ao processar sua solicitação. Por favor, reformule sua pergunta."
+
+        dispatcher.utter_message(text=resposta)
+        return [SlotSet("interpreted_intent", predicted_intent)]
+

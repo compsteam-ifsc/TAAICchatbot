@@ -1,0 +1,607 @@
+version: "3.1"
+nlu:
+- intent: saudar
+  examples: |
+    - oi
+    - olá
+    - oie
+    - e aí?
+    - como vai?
+- intent: testando
+  examples: |
+    - testando
+    - teste
+    - teste teste
+    - teste 1 2 3
+    - teste 123
+- intent: localizacao_campus
+  examples: |
+    - onde fica o campus?
+    - onde fica o IFSC?
+    - onde fica o IFSC Gaspar?
+    - cadê o IFSC Campus Gaspar?
+    - onde fica o IFSC Câmpus Gaspar?
+    - onde achar o IFSC?
+
+- intent: site_campus
+  examples: |
+    - qual o site do campus?
+    - qual o site do IFSC?
+    - qual o site do IFSC Gaspar?
+    - qual o site do IFSC Campus Gaspar?
+    - qual o site do IFSC Câmpus Gaspar?
+- intent: contar_piada
+  examples: |
+    - conte uma piada
+    - conte uma piada para mim
+    - conte uma piada por favor
+    - inventa uma piada
+    - piada
+- intent: horario_campus
+  examples: |
+    - qual o horário de funcionamento do campus?
+    - qual o horário de funcionamento do IFSC?
+    - qual o horário de funcionamento do IFSC Gaspar?
+    - qual o horário de funcionamento do IFSC Campus Gaspar?
+    - qual o horário de funcionamento do IFSC Câmpus Gaspar?
+    - o campus está aberto?
+    - quando abre o campus?
+    - quando fecha o campus?
+    - qual o horário do campus?
+
+- intent: cancelar_matricula
+  examples: |
+    - quero cancelar minha matrícula
+    - como cancelo matricula
+    - quero trancar o curso
+    - quero trancar a matricula
+    - quero trancar a matrícula
+
+- intent: out_of_scope
+  examples: |
+    - Quero pedir comida
+    - O que é 2 + 2?
+    - Quero comprar um carro
+    - Quero comprar um celular
+    - Preciso de uma boia
+    - Maçã
+
+- intent: chegada_tardia
+  examples: |
+    - cheguei atrasado
+    - cheguei atrasada
+    - cheguei atrasado na aula
+    - cheguei atrasada na aula
+    - cheguei atrasado e preciso do papel para justificar
+    - cheguei atrasada e preciso do papel para justificar
+
+- intent: nao_ajudar
+  examples: |
+    - não precisa
+    - não obrigado
+    - tudo certo por aqui
+    - não quero nada
+
+- intent: pedir_atestado_matricula
+  examples: |
+    - quero um atestado de matrícula
+    - preciso de atestado de matrícula
+    - como peço atestado de matrícula
+    - atestado de matrícula
+    - quero meu atestado de matrícula
+    - preciso do atestado de matrícula
+    - como obter atestado de matrícula
+    - procedimento para atestado de matrícula
+    - como conseguir atestado de matrícula
+
+- intent: pedir_atestado_frequencia
+  examples: |
+    - quero um atestado de frequência
+    - preciso de atestado de frequência
+    - como peço atestado de frequência
+    - atestado de frequência
+    - quero meu atestado de frequência
+    - preciso do atestado de frequência
+    - como obter atestado de frequência
+    - procedimento para atestado de frequência
+    - como conseguir atestado de frequência
+
+#novos fluxos
+
+- intent: perguntar_dias_aula
+  examples: |
+    - que dia tem aula de química
+    - quando é a aula de introdução a programação
+    - que dia vai ser a prova de banco de dados
+    - qual dia vai ter aula de português
+
+- intent: perguntar_cursos
+  examples: |
+    - quais cursos tem?
+    - quais cursos estão disponíveis?
+    - quais cursos o campus oferece?
+    - tem algum curso técnico?
+    - tem graduação?
+    - cursos disponíveis
+
+- intent: ensino_medio
+  examples: |
+    - ensino médio
+    - médio
+    - integrado
+    - técnico
+    - ensino médio integrado
+
+- intent: graduacao
+  examples: |
+    - graduação
+    - superior
+    - tecnólogo
+    - faculdade
+    - curso superior
+
+- intent: perguntar_docentes_ads
+  examples: |
+    - qual o corpo docente de ADS
+    - qual o corpo docente de informática
+    - quem são os professores de ADS
+    - contatos dos professores de informática
+    - lista de professores de ADS
+    - professores do curso de informática
+    - docentes de análise e desenvolvimento de sistemas
+    - quem são os professores do curso de informática
+    - emails dos professores de ADS
+    - corpo docente de análise e desenvolvimento de sistemas
+
+- intent: perguntar_matriz_ads
+  examples: |
+    - grade curricular de ADS
+    - matriz curricular de análise e desenvolvimento de sistemas
+    - disciplinas do curso de ADS
+    - matérias de ADS
+    - ementa do curso de ADS
+    - currículo de ADS
+    - quais são as matérias de ADS
+    - grade de análise e desenvolvimento de sistemas
+    - disciplinas obrigatórias de ADS
+    - grade do curso de ADS
+
+- intent: perguntar_docentes_moda
+  examples: |
+    - qual o corpo docente de moda
+    - quem são os professores de moda
+    - lista de professores do curso de moda
+    - docentes de design de moda
+    - professores de design de moda
+    - quem dá aula no curso de moda
+    - nomes dos professores de moda
+    - corpo docente moda
+
+- intent: perguntar_matriz_moda
+  examples: |
+    - grade curricular completa de moda
+    - matriz curricular de design de moda
+    - disciplinas com carga horária do curso de moda
+    - matérias com horas de design de moda
+    - ementa completa do curso de moda
+    - currículo de design de moda
+    - grade completa do curso de moda
+    - matriz curricular com carga horária de moda
+    - disciplinas e horas do curso de moda
+    - grade curricular de design de moda
+
+- intent: perguntar_coordenadora_moda
+  examples: |
+    - contato da coordenadora de moda
+    - quem coordena o curso de design de moda
+    - e-mail da coordenação de moda
+    - telefone da coordenadora de moda
+    - contatos da coordenação do curso de moda
+    - como falar com a coordenadora de moda
+    - coordenadora do curso de design de moda
+    - telefone da professora Káritha
+    - email da coordenação de design de moda
+
+- intent: perguntar_matriz_processos_gerenciais
+  examples: |
+    - grade curricular de processos gerenciais
+    - matriz curricular de processos gerenciais
+    - disciplinas com carga horária do curso de processos gerenciais
+    - matérias com horas de processos gerenciais
+    - ementa completa do curso de processos gerenciais
+    - currículo detalhado de processos gerenciais
+    - grade completa do curso de processos gerenciais
+    - matriz curricular com carga horária de processos gerenciais
+    - disciplinas e horas do curso de processos gerenciais
+    - grade curricular extensa de processos gerenciais
+
+- intent: perguntar_docentes_processos_gerenciais
+  examples: |
+    - qual o corpo docente de processos gerenciais
+    - quem são os professores de processos gerenciais
+    - lista de professores de processos gerenciais
+    - docentes do curso de processos gerenciais
+    - professores de processos gerenciais
+    - quem dá aula no curso de processos gerenciais
+    - nomes dos professores de processos gerenciais
+    - corpo docente processos gerenciais
+
+- intent: perguntar_biblioteca
+  examples: |
+    - horário de funcionamento da biblioteca
+    - contato da biblioteca
+    - qual o horário da biblioteca
+    - que horas abre a biblioteca
+    - e-mail da biblioteca
+    - telefone da biblioteca
+    - biblioteca do campus gaspar
+    - horário e contato da biblioteca
+    - informações sobre a biblioteca
+    - como entrar em contato com a biblioteca
+
+#fluxos contatos
+
+- intent: perguntar_recepcao
+  examples: |
+    - horário da recepção
+    - contato da recepção
+    - telefone da recepção
+    - recepção do campus
+
+- intent: perguntar_secretaria
+  examples: |
+    - horário da secretaria
+    - contato da secretaria
+    - e-mail da secretaria
+    - telefone da secretaria
+    - secretaria do campus
+
+- intent: perguntar_coord_pedagogica
+  examples: |
+    - horário da coordenação pedagógica
+    - contato da coordenação pedagógica
+    - e-mail da coordenação pedagógica
+    - telefone da coordenação pedagógica
+    - coordenação pedagógica do campus
+
+- intent: perguntar_estagio_emprego
+  examples: |
+    - horário do setor de estágio
+    - contato do setor de estágio
+    - e-mail do estágio
+    - telefone do setor de empregos
+    - estágios do ifsc
+
+- intent: perguntar_assistencia_estudantil
+  examples: |
+    - horário da assistência estudantil
+    - contato da assistência estudantil
+    - e-mail do IVS
+    - telefone do PAEVS
+    - assistência do campus
+
+- intent: perguntar_registro_academico
+  examples: |
+    - horário do registro acadêmico
+    - contato do RA
+    - e-mail do registro acadêmico
+    - telefone da coordenação de RA
+    - registro acadêmico do campus
+
+- intent: perguntar_assessoria_direcao
+  examples: |
+    - horário da assessoria da direção
+    - contato da assessoria
+    - e-mail da assessoria
+    - telefone da assessoria geral
+
+- intent: perguntar_relacoes_externas
+  examples: |
+    - horário da coordenação de relações externas
+    - contato das relações externas
+    - e-mail da CRE
+    - telefone da coordenação de relações externas
+
+- intent: perguntar_infraestrutura
+  examples: |
+    - horário da coordenação de infraestrutura
+    - contato do patrimônio
+    - e-mail da infraestrutura
+    - telefone da infraestrutura
+
+- intent: perguntar_planejamento_financas
+  examples: |
+    - horário da coordenação de planejamento
+    - contato das finanças
+    - e-mail de compras
+    - telefone da coordenação financeira
+
+- intent: perguntar_tic
+  examples: |
+    - horário da coordenação de TI
+    - contato da TIC
+    - e-mail da tecnologia da informação
+    - telefone da coordenação de informática
+
+- intent: perguntar_gestao_pessoas
+  examples: |
+    - horário da CGP
+    - contato da gestão de pessoas
+    - e-mail da coordenação de RH
+    - telefone da gestão de pessoal
+
+- intent: perguntar_coord_informatica
+  examples: |
+    - contato da coordenação de informática
+    - e-mail do técnico em informática
+    - quem coordena o curso de informática
+    - horário atendimento coordenação informática
+
+- intent: perguntar_coord_quimica
+  examples: |
+    - contato da coordenação de química
+    - e-mail do técnico em química
+    - quem coordena o curso de química
+    - horário atendimento coordenação química
+
+- intent: perguntar_coord_modelagem
+  examples: |
+    - contato da coordenação de modelagem
+    - e-mail do técnico em modelagem
+    - quem coordena o curso de modelagem
+    - horário atendimento coordenação modelagem
+
+- intent: perguntar_coord_administracao
+  examples: |
+    - contato da coordenação de administração
+    - e-mail do técnico em administração
+    - quem coordena o curso de administração
+    - horário atendimento coordenação administração
+
+- intent: perguntar_coord_meio_ambiente
+  examples: |
+    - contato da coordenação de meio ambiente
+    - e-mail do técnico em meio ambiente
+    - quem coordena o curso de meio ambiente
+    - horário atendimento coordenação meio ambiente
+
+- intent: perguntar_coord_ads
+  examples: |
+    - contato da coordenação de ADS
+    - e-mail do curso de análise e desenvolvimento
+    - quem coordena o curso de ADS
+    - horário atendimento coordenação ADS
+
+- intent: perguntar_coord_moda
+  examples: |
+    - contato da coordenação de moda
+    - e-mail do curso de design de moda
+    - quem coordena o curso de moda
+    - horário atendimento coordenação moda
+
+- intent: perguntar_coord_pg
+  examples: |
+    - contato da coordenação de processos gerenciais
+    - e-mail do curso de PG
+    - quem coordena o curso de processos gerenciais
+    - horário atendimento coordenação PG
+
+- intent: perguntar_coord_pos
+  examples: |
+    - contato da coordenação da pós-graduação
+    - e-mail da pós em pedagogia
+    - quem coordena a pós-graduação
+    - horário atendimento coordenação pós
+
+- intent: perguntar_guarita_veiculos
+  examples: |
+    - telefone da guarita
+    - contato da guarita de veículos
+    - número da guarita
+    - guarita do campus
+    - como falar com a guarita
+    - contato do estacionamento
+    - telefone do controle de veículos
+
+- intent: perguntar_grupos_atividades
+  examples: |
+    - quais são os grupos de atividade do campus
+    - grupos de pesquisa do ifsc gaspar
+    - núcleos de estudo do campus
+    - projetos de extensão disponíveis
+    - atividades extracurriculares do ifsc
+
+- intent: perguntar_neabi
+  examples: |
+    - o que é o neabi
+    - descrição do núcleo de estudos afro-brasileiros
+    - informações sobre o neabi
+    - núcleo indígena do ifsc
+
+- intent: perguntar_elas_digitais
+  examples: |
+    - o que é elas digitais
+    - projeto meninas digitais
+    - informações sobre o projeto delas
+    - mulheres na tecnologia ifsc
+
+- intent: perguntar_bioifsc
+  examples: |
+    - o que é o bioifsc
+    - grupo de bioinformática
+    - pesquisa em biologia computacional
+    - informações sobre bioifsc
+
+- intent: perguntar_gfig
+  examples: |
+    - o que é o gfig
+    - grupo de foguetes
+    - informações sobre foguetes do campus
+    - projeto gfig
+
+- intent: perguntar_frequencia
+  examples: |
+    - qual a frequência mínima
+    - quantas faltas posso ter
+    - percentual de presença obrigatório
+    - posso ser reprovado por faltas
+    - como funciona a frequência
+
+- intent: perguntar_rematricula
+  examples: |
+    - como funciona a rematrícula
+    - quando devo fazer rematrícula
+    - rematrícula é automática
+    - diferença entre cursos modulares e seriados
+    - onde faço minha rematrícula
+
+- intent: perguntar_avaliacao
+  examples: |
+    - como é o sistema de avaliação
+    - qual a nota mínima para passar
+    - critérios de avaliação
+    - como são calculadas as notas
+    - preciso de quanto para ser aprovado
+
+- intent: perguntar_recuperacao
+  examples: |
+    - perdi uma prova o que fazer
+    - como justificar falta em avaliação
+    - atestado médico para prova
+    - procedimento para repor avaliação
+    - faltar em prova por doença
+
+- intent: perguntar_afastamento
+  examples: |
+    - afastamento por saúde
+    - exercício domiciliar
+    - licença médica prolongada
+    - como estudar durante afastamento
+    - faltas por gravidez
+
+- intent: perguntar_transferencia_interna
+  examples: |
+    - como mudar de curso no ifsc
+    - transferência entre cursos
+    - edital de transferência interna
+    - mudar para outro curso
+    - requisitos para transferência interna
+
+- intent: perguntar_transferencia_externa
+  examples: |
+    - como vir de outra instituição
+    - transferência de outra faculdade
+    - edital transferência externa
+    - ingressar no ifsc por transferência
+    - mudar de universidade para ifsc
+
+- intent: perguntar_retorno_diploma
+  examples: |
+    - voltar a estudar com diploma
+    - retorno de formado
+    - ingressar com diploma técnico
+    - edital portador de diploma
+    - continuar estudos após formação
+
+- intent: periodo_trancamento
+  examples: |
+    - Qual é o período de trancamento de matrícula?
+    - Quando posso trancar minha matrícula?
+    - Até quando posso solicitar o trancamento da matrícula?
+    - Período para trancamento de matrícula
+    - Quero saber o prazo para trancar minha matrícula
+    - Trancamento de matrícula
+    - Datas para trancamento de matrícula
+    - Em que período posso trancar minha matrícula?
+    - Qual a data limite para trancamento?
+    - Quando encerra o período de trancamento?
+    - Posso trancar minha matrícula agora?
+    - Como funciona o trancamento de matrícula?
+    - Prazo de trancamento de matrícula
+    - Informações sobre o trancamento de matrícula
+    - Solicitação de trancamento de matrícula
+    - Trancar matrícula
+
+- intent: perguntar_normas_academicas
+  examples: |
+    - quais são as normas acadêmicas
+    - regulamento didático pedagógico
+    - normas do ifsc para alunos
+    - regras acadêmicas do campus
+    - quero saber sobre frequência e avaliação
+    - como funcionam as normas no ifsc
+    - preciso saber as regras acadêmicas
+    - manual do aluno ifsc
+
+- intent: periodo_validacao
+  examples: |
+    - qual o período de validação?
+    - quando é a validação de matrícula?
+    - datas da validação
+    - período para validar matrícula
+    - até quando posso validar minha matrícula?
+    - qual o prazo da validação?
+    - quando começa a validação?
+    - quando termina o período de validação?
+    - preciso saber das datas de validação
+    - validar matrícula até quando?
+
+- intent: periodo_envio_documentacao
+  examples: |
+    - qual o período de enviar documentos?
+    - quando é o prazo de envio da documentação?
+    - datas de envio de documentos
+    - período para documentação
+    - até quando posso enviar a documentação?
+    - qual o prazo da documentação?
+    - quando começa o envio de documentos?
+    - quando termina o período de documentação?
+    - preciso saber das datas de envio de documentos
+
+- intent: cancelamento_uc
+  examples: |
+    - período de cancelamento de UC
+    - quando posso cancelar matrícula em disciplinas?
+    - datas para cancelar componentes curriculares
+    - prazo para desistir de matérias
+    - até quando posso cancelar UCs?
+    - cancelamento de unidades curriculares
+    - período para trancar disciplinas
+    - como cancelar matrícula em algumas matérias?
+    - quero saber sobre cancelamento parcial
+    - período de desistência de componentes
+
+- intent: solicitacao_formatura
+  examples: |
+    - Qual o período para solicitar formatura?
+    - Quando devo requerer minha colação de grau?
+    - Quais são as datas para solicitação de formatura?
+    - Até quando posso protocolar o pedido de formatura?
+    - Qual o prazo para entrega dos documentos de formatura?
+    - Quando começa o período de solicitação de diploma?
+    - Em quais datas posso requerer minha formatura?
+    - Qual o cronograma para processo de colação de grau?
+    - Preciso saber o período de solicitação de formatura
+    - Quais são os prazos para protocolizar a formatura?
+
+- intent: recesso_escolar
+  examples: |
+    - Quando é o recesso escolar?
+    - Data do recesso escolar
+    - Período de recesso
+    - Qual o período do recesso escolar?
+    - Quando vai ser o recesso escolar?
+    - Qual a data do recesso escolar?
+
+- intent: editais_pesquisa_extensao
+  examples: |
+    - Onde encontro os editais de pesquisa e extensão?
+    - Link dos editais de pesquisa
+    - Editais vigentes de extensão
+    - Onde acessar os editais de PIBIC?
+    - Endereço dos editais de pesquisa
+    - Como consultar os editais de extensão?
+    - Onde estão publicados os editais?
+    - Link atualizado dos editais
+    - Endereço eletrônico dos editais
+    - Onde verificar editais abertos?
