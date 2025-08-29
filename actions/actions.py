@@ -21,26 +21,21 @@ class ActionConsultarDadosDinamicos(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # Intent detectada
-        current_intent = tracker.latest_message['intent'].get('name')
+	current_intent = tracker.latest_message['intent'].get('name')
 
-        # Caminho do CSV
         csv_path = os.path.expanduser("~/rasa-project/rasa-project/datas_e_links.csv")
 
         try:
             df = pd.read_csv(csv_path)
 
-            # Filtra a linha correspondente à intent
             linha = df[df['INTENTS'] == current_intent]
 
             if not linha.empty:
-                # Extrai valores
                 valor_1 = linha['VALOR_1'].values[0] if 'VALOR_1' in linha.columns else None
                 valor_2 = linha['VALOR_2'].values[0] if 'VALOR_2' in linha.columns else None
                 texto_resposta = linha['TEXTO_RESPOSTA'].values[0]
 
-                # Substitui placeholders conforme disponibilidade
-                if valor_1 is not None and pd.notna(valor_1):
+		if valor_1 is not None and pd.notna(valor_1):
                     texto_resposta = texto_resposta.replace('[VALOR_1]', str(valor_1))
                 else:
                     texto_resposta = texto_resposta.replace('[VALOR_1]', 'data não definida')
@@ -50,7 +45,6 @@ class ActionConsultarDadosDinamicos(Action):
                 else:
                     texto_resposta = texto_resposta.replace('[VALOR_2]', 'data não definida')
 
-                # Envia resposta ao usuário
                 dispatcher.utter_message(text=texto_resposta)
 
             else:
