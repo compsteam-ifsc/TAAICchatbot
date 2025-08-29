@@ -95,8 +95,6 @@ stories:
     - action: utter_atestado_frequencia
     - action: utter_como_ajudar_mais
 
-#novos fluxos 
-
   - story: Cursos disponíveis (ensino médio)
     steps:
     - intent: perguntar_cursos
