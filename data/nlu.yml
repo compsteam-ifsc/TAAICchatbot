@@ -106,8 +106,6 @@ nlu:
     - procedimento para atestado de frequência
     - como conseguir atestado de frequência
 
-#novos fluxos
-
 - intent: perguntar_dias_aula
   examples: |
     - que dia tem aula de química
@@ -238,8 +236,6 @@ nlu:
     - horário e contato da biblioteca
     - informações sobre a biblioteca
     - como entrar em contato com a biblioteca
-
-#fluxos contatos
 
 - intent: perguntar_recepcao
   examples: |
