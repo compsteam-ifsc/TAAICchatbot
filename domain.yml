@@ -12,7 +12,6 @@ intents:
 - site_campus
 - pedir_atestado_matricula
 - pedir_atestado_frequencia
-#novos fluxos
 - perguntar_cursos
 - ensino_medio
 - graduacao
@@ -24,7 +23,6 @@ intents:
 - perguntar_coordenadora_moda
 - perguntar_matriz_processos_gerenciais
 - perguntar_docentes_processos_gerenciais
-#fluxos contatos
 - perguntar_biblioteca
 - perguntar_recepcao
 - perguntar_secretaria
@@ -63,7 +61,6 @@ intents:
 - perguntar_retorno_diploma
 - periodo_trancamento
 - perguntar_normas_academicas
-#restantes
 - periodo_validacao
 - cancelamento_uc
 - solicitacao_formatura
@@ -125,7 +122,7 @@ responses:
 
   utter_atestado_frequencia:
   - text: "Para solicitar o atestado de frequência, dirija-se à secretaria acadêmica."
-  #novos fluxos
+
   utter_ask_nivel:
   - text: "Para qual nível? (ensino médio ou graduação)"
 
