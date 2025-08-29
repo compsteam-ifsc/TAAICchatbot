@@ -14,7 +14,7 @@ Para ver o repositório da página web para interação com o chatbot, acesse o 
 | **`config.yml`**         | Especifica as configurações do modelo RASA, como o pipeline de processamento de linguagem natural. |
 | **`endpoints.yml`**      | Contém informações sobre os endpoints, como o servidor do modelo e o servidor de ações.     |
 | **`credentials.yml`**    | Armazena credenciais para serviços externos, como APIs ou canais de mensagens.              |
-| **`datas_e_links.csv`**  | Contém a tabela com respostas variáveis periodicamente (data de recesso escolar, data de editais, link de editais, etc.). |
+| **`datas_e_links.csv`**  | Contém a tabela com respostas variáveis periodicamente (data de recesso escolar, data de editais, link de editais, etc.), *devendo* ser acessada constantemente para se atualizar seus dados. |
 
 | **`data/`**              | Diretório que contém dados de treinamento e regras para o modelo.                           |
 |--------------------------|---------------------------------------------------------------------------------------------|
@@ -25,6 +25,11 @@ Para ver o repositório da página web para interação com o chatbot, acesse o 
 | **`actions/`**           | Diretório que contém o código fonte para ações personalizadas do chatbot.                   |
 |--------------------------|---------------------------------------------------------------------------------------------|
 | - **`actions.py`**       | Define as ações personalizadas que o chatbot pode realizar. Destaca-se a action de processar horário, que verifica se o câmpus está aberto no horário em que o usuário perguntou ao chatbot, e a action que consulta a tabela 'datas_e_links.csv' e retorna, de acordo com a intent identificada, a resposta adequada. |
+
+| **`ações customizadas do projeto`**           | Descrição.                   |
+|--------------------------|---------------------------------------------------------------------------------------------|
+| - **`action_processar_horario_campus`**       | Ao se perguntar se o campus está aberto, invocando a intent correpondente, esta action verifica o horário de funcionamento do campus com base no dia e hora atual. Ela determina se o campus está aberto no momento, se abrirá mais tarde no mesmo dia, no próximo dia útil ou apenas na próxima segunda-feira. A action fornece respostas com base no horário regular de funcionamento (segunda a sexta, das 7h às 23h30). |
+| - **`action_consultar_dados_dinamicos`**       | Esta action consulta uma tabela CSV (datas_e_links.csv) para obter informações variáveis (datas que variam em todo ano escolar, de recessos, matrículas, editais, etc.) baseadas na intent do usuário. Ela busca dados correspondentes à intent atual e preenche placeholders no texto de resposta com os valores especificados da tabela, fornecendo respostas personalizadas com informações atualizáveis sem necessidade de modificar o código. |
 
 ### Componentes fundamentais do Rasa
 
@@ -59,7 +64,7 @@ Sempre que estiver conversando com o chatbot e precisar executar uma ação de s
 
 #### Customizando respostas
 
-Para customizar as respostas do chatbot, você deve editar o arquivo `domain.yml`. Caso queira implementar uma ação customizada em Python (que cheque algum tipo de serviço externo ou tenha uma lógica própria), adicione uma classe no arquivo `actions/actions.py`. Para mais informações, veja [este documento](https://rasa.com/docs/rasa/actions/).
+Para customizar as respostas do chatbot, você deve editar o arquivo `domain.yml`. Caso queira implementar uma ação customizada em Python (que cheque algum tipo de serviço externo ou tenha uma lógica própria), adicione uma classe no arquivo `actions/actions.py`, como, por exemplo, a nossa action de processar o horário, onde ao usuário perguntar se o câmpus está aberto, a action compara o horário em que a mensagem foi enviada em relação ao horário de funcionamento do câmpus, e dá uma resposta de acordo. Para mais informações, veja [este documento](https://rasa.com/docs/rasa/actions/).
 
 ### Rodar o chatbot
 
