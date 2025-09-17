@@ -2,9 +2,11 @@
 
 ## 🤖 rasa-project
 
-Este projeto tem como objetivo o desenvolvimento de um chatbot baseado em inteligência artificial voltado para o atendimento de discentes de cursos de graduação. A solução busca apoiar estudantes no acesso a informações institucionais, promovendo maior agilidade na comunicação e facilitando o esclarecimento de dúvidas frequentes.
+Este repositório reúne o desenvolvimento do projeto PIGAS3818-2024 – Transformando o Atendimento Acadêmico com Agentes Inteligentes Conversacionais, conduzido pelo grupo de pesquisa CompSTEAM do Instituto Federal de Santa Catarina – Câmpus Gaspar (IFSC).
 
-O chatbot foi construído utilizando a linguagem Python e o framework Rasa, com integração a fontes de dados externas. O projeto também tem caráter formativo, pois possibilitou aos bolsistas e voluntários envolvidos a aplicação prática de conhecimentos em programação, inteligência artificial e engenharia de software.
+O objetivo principal do projeto é a criação de um chatbot baseado em inteligência artificial voltado para o atendimento de discentes de cursos de graduação. A solução busca apoiar estudantes no acesso a informações institucionais, proporcionando maior agilidade na comunicação e facilitando o esclarecimento de dúvidas frequentes.
+
+O chatbot foi desenvolvido com Python e o framework Rasa, incluindo integração com fontes de dados externas. Além da entrega técnica, o projeto possui caráter formativo, pois contribuiu para a capacitação acadêmica e profissional dos bolsistas e voluntários envolvidos, que vivenciaram experiências práticas em programação, inteligência artificial e engenharia de software aplicada ao contexto educacional.
 
 Para ver o repositório da página web para interação com o chatbot, acesse o repositório [rasa-frontend](https://github.com/ifscbot/rasa-frontend).
 
