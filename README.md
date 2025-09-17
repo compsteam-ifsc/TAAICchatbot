@@ -2,7 +2,9 @@
 
 ## 🤖 rasa-project
 
-Este projeto abriga os arquivos de configuração e o código-fonte responsável por compilar o modelo do chatbot para o projeto RASA.
+Este projeto tem como objetivo o desenvolvimento de um chatbot baseado em inteligência artificial voltado para o atendimento de discentes de cursos de graduação. A solução busca apoiar estudantes no acesso a informações institucionais, promovendo maior agilidade na comunicação e facilitando o esclarecimento de dúvidas frequentes.
+
+O chatbot foi construído utilizando a linguagem Python e o framework Rasa, com integração a fontes de dados externas. O projeto também tem caráter formativo, pois possibilitou aos bolsistas e voluntários envolvidos a aplicação prática de conhecimentos em programação, inteligência artificial e engenharia de software.
 
 Para ver o repositório da página web para interação com o chatbot, acesse o repositório [rasa-frontend](https://github.com/ifscbot/rasa-frontend).
 
